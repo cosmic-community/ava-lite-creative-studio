@@ -25,9 +25,9 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
           {member.metadata?.full_name || member.title}
         </h3>
         
-        {member.metadata?.role && (
-            <p className="text-accent font-medium mb-3">{member.metadata.role}</p> {/* Changed: Orange accent */}
-        )}
+          {member.metadata?.role && (
+            <p className="text-accent font-medium mb-3">{member.metadata.role}</p>
+          )}
         
         {member.metadata?.bio && (
           <div 
