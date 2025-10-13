@@ -100,142 +100,142 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="mb-6">
-              Documenting Africa's Creative Generation
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-300">
-              AVA Lite connects emerging African creatives to the world through editorial features, 
-              professional services, and authentic storytelling.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/services" className="btn btn-primary bg-white text-primary hover:bg-gray-100">
-                Our Services
-              </Link>
-              <Link href="/case-studies" className="btn btn-secondary bg-secondary text-white hover:bg-gray-800">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Services */}
-      {services.length > 0 && (
-        <section className="section-padding bg-white">
+        <section className="bg-primary text-primary-foreground section-padding">
           <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="mb-4">Our Services</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Professional creative services tailored for African artists, brands, and organizations
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="mb-6">
+                Documenting Africa's Creative Generation
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-gray-300">
+                AVA Lite connects emerging African creatives to the world through editorial features, 
+                professional services, and authentic storytelling.
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <ServiceCard key={service.id} service={service} />
-              ))}
-            </div>
-            <div className="text-center mt-12">
-              <Link href="/services" className="btn btn-primary">
-                View All Services
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/services" className="btn btn-primary"> {/* Changed: Orange button */}
+                  Our Services
+                </Link>
+                <Link href="/case-studies" className="btn btn-secondary"> {/* Changed: Dark button */}
+                  View Our Work
+                </Link>
+              </div>
             </div>
           </div>
         </section>
+
+      {/* Featured Services */}
+      {services.length > 0 && (
+          <section className="section-padding bg-secondary"> {/* Changed: Dark background */}
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="mb-4">Our Services</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto"> {/* Changed: Gray text */}
+                  Professional creative services tailored for African artists, brands, and organizations
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service) => (
+                  <ServiceCard key={service.id} service={service} />
+                ))}
+              </div>
+              <div className="text-center mt-12">
+                <Link href="/services" className="btn btn-primary">
+                  View All Services
+                </Link>
+              </div>
+            </div>
+          </section>
       )}
 
       {/* Latest Case Study */}
       {latestCaseStudy && (
-        <section className="section-padding bg-accent">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="mb-4">Featured Project</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Our latest work showcasing African creativity and storytelling
-              </p>
+          <section className="section-padding bg-black"> {/* Changed: Black background */}
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="mb-4">Featured Project</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto"> {/* Changed: Gray text */}
+                  Our latest work showcasing African creativity and storytelling
+                </p>
+              </div>
+              <div className="max-w-4xl mx-auto">
+                <CaseStudyCard caseStudy={latestCaseStudy} featured />
+              </div>
+              <div className="text-center mt-12">
+                <Link href="/case-studies" className="btn btn-primary">
+                  View All Projects
+                </Link>
+              </div>
             </div>
-            <div className="max-w-4xl mx-auto">
-              <CaseStudyCard caseStudy={latestCaseStudy} featured />
-            </div>
-            <div className="text-center mt-12">
-              <Link href="/case-studies" className="btn btn-primary">
-                View All Projects
-              </Link>
-            </div>
-          </div>
-        </section>
+          </section>
       )}
 
       {/* Team Section */}
       {teamMembers.length > 0 && (
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="mb-4">Meet The Team</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                The creatives behind AVA Lite's mission
-              </p>
+          <section className="section-padding bg-secondary"> {/* Changed: Dark background */}
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="mb-4">Meet The Team</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto"> {/* Changed: Gray text */}
+                  The creatives behind AVA Lite's mission
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {teamMembers.map((member) => (
+                  <TeamMemberCard key={member.id} member={member} />
+                ))}
+              </div>
+              <div className="text-center mt-12">
+                <Link href="/team" className="btn btn-primary">
+                  View Full Team
+                </Link>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member) => (
-                <TeamMemberCard key={member.id} member={member} />
-              ))}
-            </div>
-            <div className="text-center mt-12">
-              <Link href="/team" className="btn btn-primary">
-                View Full Team
-              </Link>
-            </div>
-          </div>
-        </section>
+          </section>
       )}
 
       {/* Testimonials */}
       {testimonials.length > 0 && (
-        <section className="section-padding bg-primary text-primary-foreground">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="mb-4 text-white">What Creatives Say</h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                Feedback from artists and creatives we've worked with
-              </p>
+          <section className="section-padding bg-primary text-primary-foreground">
+            <div className="container-custom">
+              <div className="text-center mb-12">
+                <h2 className="mb-4 text-white">What Creatives Say</h2>
+                <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                  Feedback from artists and creatives we've worked with
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {testimonials.map((testimonial) => (
+                  <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {testimonials.map((testimonial) => (
-                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-              ))}
-            </div>
-          </div>
-        </section>
+          </section>
       )}
 
       {/* CTA Section */}
-      <section className="section-padding bg-accent">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="mb-6">Ready to Work Together?</h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Whether you're an artist looking to get featured or a brand seeking creative direction, 
-              we're here to help bring your vision to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://instagram.com/avalite2025" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                DM us on Instagram
-              </a>
-              <Link href="/services" className="btn btn-secondary">
-                Explore Services
-              </Link>
+        <section className="section-padding bg-secondary"> {/* Changed: Dark background */}
+          <div className="container-custom">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="mb-6">Ready to Work Together?</h2>
+              <p className="text-xl text-gray-400 mb-8"> {/* Changed: Gray text */}
+                Whether you're an artist looking to get featured or a brand seeking creative direction, 
+                we're here to help bring your vision to life.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="https://instagram.com/avalite2025" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  DM us on Instagram
+                </a>
+                <Link href="/services" className="btn btn-secondary">
+                  Explore Services
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </>
   )
 }

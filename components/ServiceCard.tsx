@@ -25,18 +25,18 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           {service.metadata?.service_name || service.title}
         </h3>
         
-        {service.metadata?.description && (
-          <div 
-            className="prose prose-sm mb-4 text-gray-700"
-            dangerouslySetInnerHTML={{ __html: service.metadata.description }}
-          />
-        )}
+          {service.metadata?.description && (
+            <div 
+              className="prose prose-sm mb-4 text-gray-400" {/* Changed: Gray text */}
+              dangerouslySetInnerHTML={{ __html: service.metadata.description }}
+            />
+          )}
         
-        {service.metadata?.pricing_info && (
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <p className="text-sm text-gray-600">{service.metadata.pricing_info}</p>
-          </div>
-        )}
+          {service.metadata?.pricing_info && (
+            <div className="mt-4 pt-4 border-t border-gray-700"> {/* Changed: Dark border */}
+              <p className="text-sm text-gray-500">{service.metadata.pricing_info}</p>
+            </div>
+          )}
       </div>
     </div>
   )

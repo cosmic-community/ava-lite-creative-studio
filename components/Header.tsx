@@ -7,43 +7,43 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-      <nav className="container-custom">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-primary">
-            AVA Lite
-          </Link>
+      <header className="bg-black border-b border-gray-800 sticky top-0 z-40"> {/* Changed: Black background */}
+        <nav className="container-custom">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link href="/" className="text-2xl font-bold text-white"> {/* Changed: White text */}
+              AVA Lite
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/services" className="text-gray-700 hover:text-primary transition-colors">
-              Services
-            </Link>
-            <Link href="/team" className="text-gray-700 hover:text-primary transition-colors">
-              Team
-            </Link>
-            <Link href="/case-studies" className="text-gray-700 hover:text-primary transition-colors">
-              Work
-            </Link>
-            <a 
-              href="https://instagram.com/avalite2025" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn btn-primary text-sm"
-            >
-              Contact
-            </a>
-          </div>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/" className="text-gray-300 hover:text-accent transition-colors"> {/* Changed: Gray text, orange hover */}
+                Home
+              </Link>
+              <Link href="/services" className="text-gray-300 hover:text-accent transition-colors">
+                Services
+              </Link>
+              <Link href="/team" className="text-gray-300 hover:text-accent transition-colors">
+                Team
+              </Link>
+              <Link href="/case-studies" className="text-gray-300 hover:text-accent transition-colors">
+                Work
+              </Link>
+              <a 
+                href="https://instagram.com/avalite2025" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary text-sm"
+              >
+                Contact
+              </a>
+            </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-            aria-label="Toggle menu"
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-900 text-white" {/* Changed: Dark hover, white icon */}
+              aria-label="Toggle menu"
           >
             <svg
               className="w-6 h-6"
@@ -71,47 +71,48 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
-              <Link 
-                href="/" 
-                className="text-gray-700 hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                href="/services" 
-                className="text-gray-700 hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link 
-                href="/team" 
-                className="text-gray-700 hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Team
-              </Link>
-              <Link 
-                href="/case-studies" 
-                className="text-gray-700 hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Work
-              </Link>
-              <a 
-                href="https://instagram.com/avalite2025" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-primary text-sm"
-              >
-                Contact
-              </a>
+            <div className="md:hidden py-4 border-t border-gray-800"> {/* Changed: Dark border */}
+              <div className="flex flex-col space-y-4">
+                <Link 
+                  href="/" 
+                  className="text-gray-300 hover:text-accent transition-colors" {/* Changed: Gray text, orange hover */}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/services" 
+                  className="text-gray-300 hover:text-accent transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <Link 
+                  href="/team" 
+                  className="text-gray-300 hover:text-accent transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Team
+                </Link>
+                <Link 
+                  href="/case-studies" 
+                  className="text-gray-300 hover:text-accent transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Work
+                </Link>
+                <a 
+                  href="https://instagram.com/avalite2025" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn btn-primary text-sm"
+                >
+                  Contact
+                </a>
+              </div>
             </div>
-          </div>
         )}
       </nav>
     </header>
