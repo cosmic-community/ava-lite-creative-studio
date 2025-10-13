@@ -26,7 +26,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         </h3>
         
         {member.metadata?.role && (
-          <p className="text-accent font-medium mb-3">{member.metadata.role}</p> {/* Changed: Orange accent */}
+            <p className="text-accent font-medium mb-3">{member.metadata.role}</p> {/* Changed: Orange accent */}
         )}
         
         {member.metadata?.bio && (
@@ -41,7 +41,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             href={`https://instagram.com/${member.metadata.instagram_handle.replace('@', '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:text-orange-600 transition-colors text-sm" {/* Changed: Orange with darker hover */}
+              className="text-accent hover:text-orange-600 transition-colors text-sm" /* Changed: Orange with darker hover */
           >
             {member.metadata.instagram_handle}
           </a>
