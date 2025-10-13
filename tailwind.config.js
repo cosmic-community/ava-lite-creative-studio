@@ -8,16 +8,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#11171A',
-          foreground: '#ffffff',
+          DEFAULT: '#ffffff', // Changed: White background
+          foreground: '#000000', // Changed: Black text
         },
         secondary: {
-          DEFAULT: '#1a2326',
-          foreground: '#ffffff',
+          DEFAULT: '#f9fafb', // Changed: Very light gray for alternating sections
+          foreground: '#000000', // Changed: Black text
         },
         accent: {
-          DEFAULT: '#f3f4f6',
-          foreground: '#11171A',
+          DEFAULT: '#ff6b35', // Changed: Vibrant orange accent
+          foreground: '#ffffff', // Changed: White text on orange
         },
       },
       fontFamily: {

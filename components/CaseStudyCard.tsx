@@ -37,9 +37,9 @@ export default function CaseStudyCard({ caseStudy, featured = false }: CaseStudy
           
             {caseStudy.metadata?.overview && (
               <div 
-                className="prose prose-sm text-gray-400 mb-4 line-clamp-3" {/* Changed: Gray text */}
+              <div 
+                className="prose prose-sm text-gray-600 mb-4 line-clamp-3" {/* Changed: Medium gray text */}
                 dangerouslySetInnerHTML={{ __html: caseStudy.metadata.overview }}
-              />
             )}
           
             {caseStudy.metadata?.project_date && (
@@ -52,7 +52,7 @@ export default function CaseStudyCard({ caseStudy, featured = false }: CaseStudy
             )}
           
             <div className="mt-4">
-              <span className="text-accent font-medium hover:text-orange-600 transition-colors"> {/* Changed: Orange accent */}
+              <span className="text-accent font-medium hover:text-orange-600 transition-colors"> {/* Changed: Orange accent with darker hover */}
                 View Case Study →
               </span>
             </div>

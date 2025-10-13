@@ -4,11 +4,11 @@
 
 @layer base {
     * {
-      @apply border-gray-800; /* Changed: Darker borders for black theme */
+      @apply border-gray-200; /* Changed: Light borders for white theme */
     }
     
     body {
-      @apply bg-black text-white antialiased; /* Changed: Black background, white text */
+      @apply bg-white text-black antialiased; /* Changed: White background, black text */
     }
 
   h1, h2, h3, h4, h5, h6 {
@@ -42,15 +42,15 @@
   }
 
     .btn-primary {
-      @apply bg-accent text-accent-foreground hover:bg-orange-600; /* Changed: Orange primary button */
+      @apply bg-accent text-accent-foreground hover:bg-orange-600; /* Changed: Orange primary button with darker hover */
     }
 
     .btn-secondary {
-      @apply bg-secondary text-white hover:bg-gray-800 border border-gray-700; /* Changed: Dark secondary button */
+      @apply bg-white text-black hover:bg-gray-100 border border-gray-300; /* Changed: Light secondary button */
     }
 
     .card {
-      @apply bg-secondary rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl border border-gray-800; /* Changed: Dark cards with border */
+      @apply bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl border border-gray-200; /* Changed: White cards with light border */
     }
 
   .section-padding {
