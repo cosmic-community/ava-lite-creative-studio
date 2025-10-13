@@ -37,9 +37,9 @@ export default function CaseStudyCard({ caseStudy, featured = false }: CaseStudy
           
             {caseStudy.metadata?.overview && (
               <div 
-              <div 
-                className="prose prose-sm text-gray-600 mb-4 line-clamp-3" {/* Changed: Medium gray text */}
+                className="prose prose-sm text-gray-600 mb-4 line-clamp-3" /* Changed: Medium gray text */
                 dangerouslySetInnerHTML={{ __html: caseStudy.metadata.overview }}
+              />
             )}
           
             {caseStudy.metadata?.project_date && (

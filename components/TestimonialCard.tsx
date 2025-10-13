@@ -32,11 +32,11 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
           </p>
         )}
         
-        {testimonial.metadata?.location && (
-          <p className="text-gray-600 text-sm"> {/* Changed: Medium gray text */}
-            {testimonial.metadata.location}
-        )}
-      </div>
+          {testimonial.metadata?.location && (
+            <p className="text-gray-600 text-sm"> {/* Changed: Medium gray text */}
+              {testimonial.metadata.location}
+            </p>
+          )}
     </div>
   )
 }

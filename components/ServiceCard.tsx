@@ -27,9 +27,9 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         
           {service.metadata?.description && (
             <div 
-              <div 
-                className="prose prose-sm mb-4 text-gray-600" {/* Changed: Medium gray text */}
-                dangerouslySetInnerHTML={{ __html: service.metadata.description }}
+              className="prose prose-sm mb-4 text-gray-600" /* Changed: Medium gray text */
+              dangerouslySetInnerHTML={{ __html: service.metadata.description }}
+            />
           )}
         
           {service.metadata?.pricing_info && (

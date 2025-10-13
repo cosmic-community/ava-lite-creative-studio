@@ -17,28 +17,26 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-accent transition-colors"> {/* Changed: Dark gray text, orange hover */}
-              Home
-            </Link>
-            <Link href="/services" className="text-gray-700 hover:text-accent transition-colors">
-              Services
-            </Link>
-            <Link href="/team" className="text-gray-700 hover:text-accent transition-colors">
-              Team
-            </Link>
-            <Link href="/case-studies" className="text-gray-700 hover:text-accent transition-colors">
-              Work
-            </Link>
-            <a 
-              href="https://instagram.com/avalite2025" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn btn-primary text-sm"
-            >
-              Contact
-            </a>
-          </div>
+              <Link href="/" className="text-gray-700 hover:text-accent transition-colors"> {/* Changed: Dark gray text, orange hover */}
+                Home
+              </Link>
+              <Link href="/services" className="text-gray-700 hover:text-accent transition-colors">
+                Services
+              </Link>
+              <Link href="/team" className="text-gray-700 hover:text-accent transition-colors">
+                Team
+              </Link>
+              <Link href="/case-studies" className="text-gray-700 hover:text-accent transition-colors">
+                Work
+              </Link>
+              <a 
+                href="https://instagram.com/avalite2025" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary text-sm"
+              >
+                Contact
+              </a>
             </div>
 
           {/* Mobile menu button */}
@@ -73,13 +71,12 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200"> {/* Changed: Light border */}
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/" 
-                className="text-gray-700 hover:text-accent transition-colors" {/* Changed: Dark gray text, orange hover */}
+                className="text-gray-700 hover:text-accent transition-colors" /* Changed: Dark gray text, orange hover */
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
