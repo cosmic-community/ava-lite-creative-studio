@@ -290,15 +290,74 @@ export default function FirstLightPage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              FIRST LIGHT Exhibition
+              ✨ FIRST LIGHT Exhibition
             </h1>
-            <p className="text-xl md:text-2xl mb-4">
-              AVA Lite Digital + Physical Exhibition
+            <p className="text-xl md:text-2xl mb-6 font-semibold">
+              A Celebration of Rising Creativity
             </p>
-            <p className="text-lg opacity-90">
-              Secure your spot in this groundbreaking exhibition celebrating African creativity. 
-              Choose your tier, select add-ons, and confirm your participation.
+            <div className="text-lg opacity-95 space-y-4 mb-8">
+              <p>
+                FIRST LIGHT marks a powerful beginning — a celebration of rising creativity and the spark of a global movement rooted in Botswana.
+              </p>
+              <p>
+                This January in Maun, AVA Lite presents our first Digital + Physical exhibition — giving artists the opportunity to shine in both worlds and reach audiences near and far.
+              </p>
+              <p className="font-medium text-xl mt-6">
+                If you're ready to take the next step in your creative journey:
+              </p>
+              <p className="text-lg">
+                📩 DM us on our listed socials to receive the official exhibition tiers, pricing, and payment instructions.
+              </p>
+              <p className="font-semibold text-xl mt-4">
+                Your spotlight begins the moment you reach out.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+              <a 
+                href="https://instagram.com/avalite2025" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn bg-white text-accent hover:bg-gray-100 text-lg px-8 py-4"
+              >
+                Contact Us on Instagram
+              </a>
+            </div>
+            <p className="text-2xl font-bold mt-8 tracking-wide">
+              Be the light that leads the way.<br />
+              Step into FIRST LIGHT.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Exhibition Overview */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">Exhibition Overview</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+              <div className="p-6 bg-gray-50 rounded-lg">
+                <div className="text-3xl mb-3">🎨</div>
+                <h3 className="font-bold text-xl mb-2">Digital + Physical</h3>
+                <p className="text-gray-600">
+                  This is the payment page for the AVA Lite Digital + Physical Exhibition
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50 rounded-lg">
+                <div className="text-3xl mb-3">📋</div>
+                <h3 className="font-bold text-xl mb-2">Choose Your Tier</h3>
+                <p className="text-gray-600">
+                  Exhibitors must select a tier based on their exhibition type
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50 rounded-lg">
+                <div className="text-3xl mb-3">✓</div>
+                <h3 className="font-bold text-xl mb-2">Confirm Participation</h3>
+                <p className="text-gray-600">
+                  Payments confirm your participation in FIRST LIGHT
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
