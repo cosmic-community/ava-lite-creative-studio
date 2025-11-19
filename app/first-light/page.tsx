@@ -246,7 +246,8 @@ export default function FirstLightPage() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFormData(prev => ({ ...prev, paymentProof: e.target.files![0] }))
+      // Changed: Explicitly cast to File | null to match state type
+      setFormData(prev => ({ ...prev, paymentProof: e.target.files![0] || null }))
     }
   }
 
@@ -279,7 +280,11 @@ export default function FirstLightPage() {
     if (!acc[addon.category]) {
       acc[addon.category] = []
     }
-    acc[addon.category].push(addon)
+    // Changed: Added explicit check to satisfy TypeScript
+    const categoryArray = acc[addon.category]
+    if (categoryArray) {
+      categoryArray.push(addon)
+    }
     return acc
   }, {} as Record<string, AddOn[]>)
 
