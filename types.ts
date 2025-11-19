@@ -74,10 +74,57 @@ export interface CaseStudy extends CosmicObject {
   };
 }
 
+// First Light Payment type
+export interface FirstLightPayment extends CosmicObject {
+  type: 'first-light-payments';
+  metadata: {
+    artist_name?: string;
+    email?: string;
+    phone?: string;
+    exhibition_tier?: string;
+    addons?: string; // JSON string
+    total_amount?: number;
+    payment_proof?: {
+      url: string;
+      imgix_url: string;
+    };
+    payment_status?: string;
+    submission_date?: string;
+  };
+}
+
 // API response types
 export interface CosmicResponse<T> {
   objects: T[];
   total: number;
   limit?: number;
   skip?: number;
+}
+
+// Exhibition tier interface
+export interface ExhibitionTier {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  features: string[];
+}
+
+// Add-on interface
+export interface AddOn {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+  description: string;
+}
+
+// Package interface
+export interface Package {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  includes: string[];
+  savings?: number;
 }

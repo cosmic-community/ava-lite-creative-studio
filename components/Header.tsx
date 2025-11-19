@@ -7,42 +7,45 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm"> {/* Changed: White background with subtle shadow */}
-        <nav className="container-custom">
-          <div className="flex items-center justify-between h-16">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+      <nav className="container-custom">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-black"> {/* Changed: Black text */}
+          <Link href="/" className="text-2xl font-bold text-black">
             AVA Lite
           </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-accent transition-colors"> {/* Changed: Dark gray text, orange hover */}
-                Home
-              </Link>
-              <Link href="/services" className="text-gray-700 hover:text-accent transition-colors">
-                Services
-              </Link>
-              <Link href="/team" className="text-gray-700 hover:text-accent transition-colors">
-                Team
-              </Link>
-              <Link href="/case-studies" className="text-gray-700 hover:text-accent transition-colors">
-                Work
-              </Link>
-              <a 
-                href="https://instagram.com/avalite2025" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-primary text-sm"
-              >
-                Contact
-              </a>
-            </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-gray-700 hover:text-accent transition-colors">
+              Home
+            </Link>
+            <Link href="/services" className="text-gray-700 hover:text-accent transition-colors">
+              Services
+            </Link>
+            <Link href="/team" className="text-gray-700 hover:text-accent transition-colors">
+              Team
+            </Link>
+            <Link href="/case-studies" className="text-gray-700 hover:text-accent transition-colors">
+              Work
+            </Link>
+            <Link href="/first-light" className="text-gray-700 hover:text-accent transition-colors font-semibold">
+              First Light
+            </Link>
+            <a 
+              href="https://instagram.com/avalite2025" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-primary text-sm"
+            >
+              Contact
+            </a>
+          </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 text-black" /* Changed: Light hover, black icon */
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 text-black"
             aria-label="Toggle menu"
           >
             <svg
@@ -72,11 +75,11 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200"> {/* Changed: Light border */}
+          <div className="md:hidden py-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/" 
-                className="text-gray-700 hover:text-accent transition-colors" /* Changed: Dark gray text, orange hover */
+                className="text-gray-700 hover:text-accent transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
@@ -101,6 +104,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Work
+              </Link>
+              <Link 
+                href="/first-light" 
+                className="text-gray-700 hover:text-accent transition-colors font-semibold"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                First Light
               </Link>
               <a 
                 href="https://instagram.com/avalite2025" 
