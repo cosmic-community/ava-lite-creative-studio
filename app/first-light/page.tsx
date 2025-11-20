@@ -6,6 +6,7 @@ interface ExhibitionTier {
   id: string
   name: string
   price: number
+  duration?: string
   description: string
   features: string[]
 }
@@ -18,60 +19,103 @@ interface AddOn {
   description: string
 }
 
-const exhibitionTiers: ExhibitionTier[] = [
+interface Package {
+  id: string
+  name: string
+  price: number
+  description: string
+  includes: string[]
+}
+
+// Video Showcase Tiers
+const videoShowcaseTiers: ExhibitionTier[] = [
   {
-    id: 'digital_tier_1',
-    name: 'Digital Exhibition - Tier 1',
-    price: 150,
-    description: 'Perfect for new creators',
+    id: 'video_micro',
+    name: 'Micro',
+    price: 100,
+    duration: '5 min',
+    description: 'Perfect for quick showcases',
     features: [
-      '1 artwork uploaded to AVA Lite Digital Gallery',
-      'Artist profile featured online',
-      'Exhibition marketing included'
+      'Digital gallery display',
+      'Social media feature',
+      'Loop at physical exhibition'
     ]
   },
   {
-    id: 'digital_tier_2',
-    name: 'Digital Exhibition - Tier 2',
-    price: 250,
+    id: 'video_standard',
+    name: 'Standard',
+    price: 200,
+    duration: '10–15 min',
     description: 'Enhanced digital presence',
     features: [
-      'Up to 3 artworks uploaded',
-      'Social media feature (1 post)',
-      'Artist profile enhancements + exhibition promo'
+      'Digital gallery',
+      'Social media',
+      'Loop at physical exhibition',
+      'Website archive'
     ]
   },
   {
-    id: 'physical_standard',
-    name: 'Physical Exhibition - Standard',
-    price: 300,
-    description: 'Best for small artworks',
+    id: 'video_extended',
+    name: 'Extended',
+    price: 350,
+    duration: '20–25 min',
+    description: 'Extended showcase with artist feature',
     features: [
-      '1 physical artwork displayed at venue',
-      'Included in event promo',
-      'Online gallery preview'
+      'Digital gallery',
+      'Social media',
+      'Loop at physical exhibition',
+      'Website archive',
+      'Mini artist feature'
     ]
   },
   {
-    id: 'physical_premium',
-    name: 'Physical Exhibition - Premium',
-    price: 500,
-    description: 'Priority placement',
+    id: 'video_full',
+    name: 'Full Showcase',
+    price: 550,
+    duration: '30–40 min',
+    description: 'Complete showcase experience',
     features: [
-      'Up to 2 physical artworks displayed',
-      'Priority wall placement',
-      'Social media feature + online gallery profile'
+      'Digital gallery',
+      'Social media',
+      'Loop at physical exhibition',
+      'Mini interview clip',
+      'Priority placement',
+      'Optional Essence Magazine mini-feature'
+    ]
+  }
+]
+
+// Physical Exhibition Tiers
+const physicalExhibitionTiers: ExhibitionTier[] = [
+  {
+    id: 'physical_small',
+    name: 'Small Piece / Individual Art',
+    price: 100,
+    description: 'Perfect for individual artworks',
+    features: [
+      'Display space at physical exhibition',
+      'Mention in event program'
     ]
   },
   {
-    id: 'combo',
-    name: 'Digital + Physical Combo',
-    price: 650,
-    description: 'Best of both worlds',
+    id: 'physical_medium',
+    name: 'Medium Piece / Group Display',
+    price: 200,
+    description: 'Larger display area',
     features: [
-      '1 physical artwork + 2 digital uploads',
-      'Social media feature',
-      'Priority listing in exhibition catalog'
+      'Larger display area',
+      'Mention in event promotions'
+    ]
+  },
+  {
+    id: 'physical_large',
+    name: 'Large Installation / Group Exhibit',
+    price: 350,
+    description: 'Ample space for installations',
+    features: [
+      'Ample display space',
+      'Prominent placement',
+      'Inclusion in marketing'
     ]
   }
 ]
@@ -82,133 +126,114 @@ const addOns: AddOn[] = [
     name: 'Essence Magazine Feature',
     price: 80,
     category: 'Content & Promotion',
-    description: 'Artist write-up or interview featured in magazine edition'
+    description: 'Artist write-up / interview'
   },
   {
     id: 'promo_video',
     name: 'Promo Video (30 sec)',
     price: 100,
     category: 'Content & Promotion',
-    description: 'Short video highlighting the artist for social media'
+    description: 'Highlight artist/team for socials & gallery'
   },
   {
     id: 'artist_profile',
     name: 'Artist Profile Listing',
     price: 50,
     category: 'Content & Promotion',
-    description: 'Permanent profile on AVA Lite website with links and bio'
+    description: 'Permanent profile on AVA Lite website'
   },
   {
     id: 'extra_social_post',
     name: 'Extra Social Media Post',
     price: 30,
     category: 'Content & Promotion',
-    description: 'Additional social media feature on AVA Lite platforms'
+    description: 'Additional social media feature'
+  },
+  {
+    id: 'interview_clip',
+    name: 'Interview Clip (Digital)',
+    price: 50,
+    category: 'Content & Promotion',
+    description: '30–60 sec clip played during digital display'
   },
   {
     id: 'priority_placement',
     name: 'Priority Placement (Physical Event)',
     price: 40,
     category: 'Content & Promotion',
-    description: 'Your work displayed at prime location during physical exhibition'
+    description: 'Prime location during physical exhibition'
   },
   {
     id: 'vendor_table',
     name: 'Vendor Table (Physical)',
     price: 40,
     category: 'Event Engagement',
-    description: 'Table or space to sell prints, merch, or creations during event'
+    description: 'Sell prints / merch on-site'
   },
   {
     id: 'team_shirts',
     name: 'AVA Lite Tees / Matching Team Shirts',
     price: 80,
     category: 'Event Engagement',
-    description: 'Matching tees for teams or groups, worn during event'
+    description: 'Branded tees for team or group (per set)'
   },
   {
     id: 'live_painting',
     name: 'Live Painting / Art Creation Booth',
     price: 150,
     category: 'Event Engagement',
-    description: 'Artist paints or creates live during exhibition'
+    description: 'Create and sell live during physical exhibition'
   },
   {
     id: 'workshop_slot',
     name: 'Workshop / Demo Slot',
     price: 120,
     category: 'Event Engagement',
-    description: '15–20 min slot for mini-demo or live interactive session'
-  },
-  {
-    id: 'merch_combo',
-    name: 'Merch Combo Pack',
-    price: 150,
-    category: 'Event Engagement',
-    description: 'Includes AVA Lite tote bag, stickers, and small print'
+    description: '15–20 min slot for interactive demo or talk'
   },
   {
     id: 'team_spotlight',
     name: 'Team Feature Spotlight',
     price: 100,
     category: 'Event Engagement',
-    description: 'Special highlight for teams/groups during event'
+    description: 'Featured in digital gallery + social media intro'
+  }
+]
+
+const suggestedPackages: Package[] = [
+  {
+    id: 'team_combo',
+    name: 'Team Combo',
+    price: 880,
+    description: 'Complete team experience',
+    includes: [
+      'Full Showcase',
+      'Matching Tees',
+      'Team Feature Spotlight',
+      'Live Painting'
+    ]
   },
   {
-    id: 'art_photography',
-    name: 'Professional Art Photography',
-    price: 200,
-    category: 'Photography & Media',
-    description: 'Professional photography of your artwork (per artwork)'
+    id: 'solo_artist',
+    name: 'Solo Artist Combo',
+    price: 360,
+    description: 'Perfect for individual artists',
+    includes: [
+      'Standard Display',
+      'Promo Video',
+      'Priority Placement'
+    ]
   },
   {
-    id: 'artist_photoshoot',
-    name: 'Artist Portrait Photoshoot',
-    price: 350,
-    category: 'Photography & Media',
-    description: 'Professional portrait session for artist profile'
-  },
-  {
-    id: 'group_promo',
-    name: 'Group Promo Shot',
-    price: 200,
-    category: 'Photography & Media',
-    description: 'Group promotional photography for teams'
-  },
-  {
-    id: 'photo_pack',
-    name: 'Event Photo Pack Download',
-    price: 100,
-    category: 'Photography & Media',
-    description: 'Digital download of event photos'
-  },
-  {
-    id: 'business_cards',
-    name: 'Artist Business Card Design',
-    price: 120,
-    category: 'Photography & Media',
-    description: 'Professional business card design and printing'
-  },
-  {
-    id: 'gift_pack',
-    name: 'First-Light Gift Pack',
-    price: 180,
-    category: 'Photography & Media',
-    description: 'Includes pins, stickers, and exclusive merchandise'
-  },
-  {
-    id: 'installation_service',
-    name: 'Artwork Installation & Handling Service',
-    price: 100,
-    category: 'Photography & Media',
-    description: 'Professional installation and handling of your artwork'
-  },
-  {
-    id: 'delivery_service',
-    name: 'Post-Show Artwork Delivery Service',
-    price: 250,
-    category: 'Photography & Media',
-    description: 'Local delivery service after the exhibition (if local)'
+    id: 'extended_combo',
+    name: 'Extended Combo',
+    price: 450,
+    description: 'Extended showcase package',
+    includes: [
+      'Extended Display',
+      'Interview Clip',
+      'Priority Placement'
+    ]
   }
 ]
 
@@ -217,22 +242,33 @@ export default function FirstLightPage() {
     artistName: '',
     email: '',
     phone: '',
-    selectedTier: '',
+    selectedVideoTier: '',
+    selectedPhysicalTier: '',
     selectedAddOns: [] as string[],
+    selectedPackage: '',
     paymentProof: null as File | null
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
 
-  const selectedTierData = exhibitionTiers.find(tier => tier.id === formData.selectedTier)
+  const selectedVideoTierData = videoShowcaseTiers.find(tier => tier.id === formData.selectedVideoTier)
+  const selectedPhysicalTierData = physicalExhibitionTiers.find(tier => tier.id === formData.selectedPhysicalTier)
   const selectedAddOnsData = addOns.filter(addon => formData.selectedAddOns.includes(addon.id))
+  const selectedPackageData = suggestedPackages.find(pkg => pkg.id === formData.selectedPackage)
   
-  const totalAmount = (selectedTierData?.price || 0) + 
-    selectedAddOnsData.reduce((sum, addon) => sum + addon.price, 0)
+  const totalAmount = 
+    (selectedVideoTierData?.price || 0) + 
+    (selectedPhysicalTierData?.price || 0) +
+    selectedAddOnsData.reduce((sum, addon) => sum + addon.price, 0) +
+    (selectedPackageData?.price || 0)
 
-  const handleTierChange = (tierId: string) => {
-    setFormData(prev => ({ ...prev, selectedTier: tierId }))
+  const handleVideoTierChange = (tierId: string) => {
+    setFormData(prev => ({ ...prev, selectedVideoTier: tierId }))
+  }
+
+  const handlePhysicalTierChange = (tierId: string) => {
+    setFormData(prev => ({ ...prev, selectedPhysicalTier: tierId }))
   }
 
   const handleAddOnToggle = (addonId: string) => {
@@ -244,9 +280,15 @@ export default function FirstLightPage() {
     }))
   }
 
+  const handlePackageSelect = (packageId: string) => {
+    setFormData(prev => ({ 
+      ...prev, 
+      selectedPackage: prev.selectedPackage === packageId ? '' : packageId 
+    }))
+  }
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      // Changed: Explicitly cast to File | null to match state type
       setFormData(prev => ({ ...prev, paymentProof: e.target.files![0] || null }))
     }
   }
@@ -266,8 +308,10 @@ export default function FirstLightPage() {
           artistName: '',
           email: '',
           phone: '',
-          selectedTier: '',
+          selectedVideoTier: '',
+          selectedPhysicalTier: '',
           selectedAddOns: [],
+          selectedPackage: '',
           paymentProof: null
         })
         setSubmitSuccess(false)
@@ -280,7 +324,6 @@ export default function FirstLightPage() {
     if (!acc[addon.category]) {
       acc[addon.category] = []
     }
-    // Changed: Added explicit check to satisfy TypeScript
     const categoryArray = acc[addon.category]
     if (categoryArray) {
       categoryArray.push(addon)
@@ -308,10 +351,10 @@ export default function FirstLightPage() {
                 This January in Maun, AVA Lite presents our first Digital + Physical exhibition — giving artists the opportunity to shine in both worlds and reach audiences near and far.
               </p>
               <p className="font-medium text-xl mt-6">
-                If you're ready to take the next step in your creative journey:
+                Choose from our Video Showcase tiers, Physical Exhibition options, or combine them for maximum impact.
               </p>
               <p className="text-lg">
-                📩 DM us on our listed socials to receive the official exhibition tiers, pricing, and payment instructions.
+                📩 Scroll down to view pricing and reserve your spot today.
               </p>
               <p className="font-semibold text-xl mt-4">
                 Your spotlight begins the moment you reach out.
@@ -342,24 +385,24 @@ export default function FirstLightPage() {
             <h2 className="text-4xl font-bold mb-6">Exhibition Overview</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
               <div className="p-6 bg-gray-50 rounded-lg">
+                <div className="text-3xl mb-3">🎬</div>
+                <h3 className="font-bold text-xl mb-2">Video Showcase</h3>
+                <p className="text-gray-600">
+                  Digital gallery display with social media features and physical exhibition loops
+                </p>
+              </div>
+              <div className="p-6 bg-gray-50 rounded-lg">
                 <div className="text-3xl mb-3">🎨</div>
-                <h3 className="font-bold text-xl mb-2">Digital + Physical</h3>
+                <h3 className="font-bold text-xl mb-2">Physical Exhibition</h3>
                 <p className="text-gray-600">
-                  This is the payment page for the AVA Lite Digital + Physical Exhibition
+                  Display your artwork at our physical venue with professional setup
                 </p>
               </div>
               <div className="p-6 bg-gray-50 rounded-lg">
-                <div className="text-3xl mb-3">📋</div>
-                <h3 className="font-bold text-xl mb-2">Choose Your Tier</h3>
+                <div className="text-3xl mb-3">✨</div>
+                <h3 className="font-bold text-xl mb-2">Add-Ons & Combos</h3>
                 <p className="text-gray-600">
-                  Exhibitors must select a tier based on their exhibition type
-                </p>
-              </div>
-              <div className="p-6 bg-gray-50 rounded-lg">
-                <div className="text-3xl mb-3">✓</div>
-                <h3 className="font-bold text-xl mb-2">Confirm Participation</h3>
-                <p className="text-gray-600">
-                  Payments confirm your participation in FIRST LIGHT
+                  Enhance your experience with promotional services and package deals
                 </p>
               </div>
             </div>
@@ -367,31 +410,36 @@ export default function FirstLightPage() {
         </div>
       </section>
 
-      {/* Exhibition Tiers */}
+      {/* Video Showcase Tiers */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-center mb-12">Exhibition Tiers</h2>
+          <h2 className="text-4xl font-bold text-center mb-4">Video Showcase Tiers</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Digital gallery display with social media features and loops at physical exhibition
+          </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {exhibitionTiers.map((tier) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {videoShowcaseTiers.map((tier) => (
               <div
                 key={tier.id}
                 className={`card cursor-pointer transition-all duration-300 ${
-                  formData.selectedTier === tier.id 
+                  formData.selectedVideoTier === tier.id 
                     ? 'ring-4 ring-accent shadow-2xl' 
                     : 'hover:shadow-xl'
                 }`}
-                onClick={() => handleTierChange(tier.id)}
+                onClick={() => handleVideoTierChange(tier.id)}
               >
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold">{tier.name}</h3>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-accent">P{tier.price}</div>
-                    </div>
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold mb-1">{tier.name}</h3>
+                    {tier.duration && (
+                      <p className="text-sm text-gray-500">{tier.duration}</p>
+                    )}
                   </div>
                   
-                  <p className="text-gray-600 mb-4">{tier.description}</p>
+                  <div className="text-2xl font-bold text-accent mb-3">P{tier.price}</div>
+                  
+                  <p className="text-gray-600 text-sm mb-4">{tier.description}</p>
                   
                   <ul className="space-y-2">
                     {tier.features.map((feature, idx) => (
@@ -408,10 +456,98 @@ export default function FirstLightPage() {
         </div>
       </section>
 
-      {/* Add-Ons */}
-      <section className="section-padding">
+      {/* Physical Exhibition Tiers */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-center mb-12">Add-Ons (Optional)</h2>
+          <h2 className="text-4xl font-bold text-center mb-4">Physical Exhibition – Artworks</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Display your physical artwork at our venue with professional setup and promotion
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {physicalExhibitionTiers.map((tier) => (
+              <div
+                key={tier.id}
+                className={`card cursor-pointer transition-all duration-300 ${
+                  formData.selectedPhysicalTier === tier.id 
+                    ? 'ring-4 ring-accent shadow-2xl' 
+                    : 'hover:shadow-xl'
+                }`}
+                onClick={() => handlePhysicalTierChange(tier.id)}
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">{tier.name}</h3>
+                  
+                  <div className="text-2xl font-bold text-accent mb-3">P{tier.price}</div>
+                  
+                  <p className="text-gray-600 text-sm mb-4">{tier.description}</p>
+                  
+                  <ul className="space-y-2">
+                    {tier.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <span className="text-accent mr-2">✓</span>
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Suggested Packages */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <h2 className="text-4xl font-bold text-center mb-4">Suggested Combos</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Save with our pre-packaged combinations designed for different needs
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {suggestedPackages.map((pkg) => (
+              <div
+                key={pkg.id}
+                className={`card cursor-pointer transition-all duration-300 ${
+                  formData.selectedPackage === pkg.id 
+                    ? 'ring-4 ring-accent shadow-2xl' 
+                    : 'hover:shadow-xl'
+                }`}
+                onClick={() => handlePackageSelect(pkg.id)}
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">{pkg.name}</h3>
+                  
+                  <div className="text-3xl font-bold text-accent mb-3">P{pkg.price}</div>
+                  
+                  <p className="text-gray-600 text-sm mb-4">{pkg.description}</p>
+                  
+                  <div className="mb-4">
+                    <p className="font-semibold text-sm mb-2">Includes:</p>
+                    <ul className="space-y-1">
+                      {pkg.includes.map((item, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="text-accent mr-2">•</span>
+                          <span className="text-sm">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Add-Ons */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <h2 className="text-4xl font-bold text-center mb-4">Add-Ons (Optional)</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Enhance your exhibition experience with these additional services
+          </p>
           
           {Object.entries(addOnsByCategory).map(([category, categoryAddOns]) => (
             <div key={category} className="mb-12">
@@ -532,37 +668,71 @@ export default function FirstLightPage() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Selected Exhibition Tier *
-                  </label>
-                  <div className="p-4 bg-gray-100 rounded-lg">
-                    {selectedTierData ? (
-                      <div>
-                        <div className="font-bold text-lg">{selectedTierData.name}</div>
-                        <div className="text-accent font-bold text-xl">P{selectedTierData.price}</div>
-                      </div>
-                    ) : (
-                      <div className="text-gray-500">Please select a tier above</div>
-                    )}
-                  </div>
-                </div>
-
-                {selectedAddOnsData.length > 0 && (
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Selected Add-Ons
-                    </label>
-                    <div className="p-4 bg-gray-100 rounded-lg space-y-2">
-                      {selectedAddOnsData.map(addon => (
-                        <div key={addon.id} className="flex justify-between">
-                          <span>{addon.name}</span>
-                          <span className="font-bold">P{addon.price}</span>
+                {/* Selected Items Summary */}
+                <div className="space-y-4">
+                  {selectedVideoTierData && (
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Selected Video Showcase
+                      </label>
+                      <div className="p-4 bg-gray-100 rounded-lg">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <div className="font-bold">{selectedVideoTierData.name}</div>
+                            {selectedVideoTierData.duration && (
+                              <div className="text-sm text-gray-500">{selectedVideoTierData.duration}</div>
+                            )}
+                          </div>
+                          <div className="text-accent font-bold">P{selectedVideoTierData.price}</div>
                         </div>
-                      ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+
+                  {selectedPhysicalTierData && (
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Selected Physical Exhibition
+                      </label>
+                      <div className="p-4 bg-gray-100 rounded-lg">
+                        <div className="flex justify-between items-center">
+                          <div className="font-bold">{selectedPhysicalTierData.name}</div>
+                          <div className="text-accent font-bold">P{selectedPhysicalTierData.price}</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedPackageData && (
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Selected Package
+                      </label>
+                      <div className="p-4 bg-gray-100 rounded-lg">
+                        <div className="flex justify-between items-center">
+                          <div className="font-bold">{selectedPackageData.name}</div>
+                          <div className="text-accent font-bold">P{selectedPackageData.price}</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedAddOnsData.length > 0 && (
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Selected Add-Ons
+                      </label>
+                      <div className="p-4 bg-gray-100 rounded-lg space-y-2">
+                        {selectedAddOnsData.map(addon => (
+                          <div key={addon.id} className="flex justify-between">
+                            <span>{addon.name}</span>
+                            <span className="font-bold">P{addon.price}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">
@@ -591,7 +761,7 @@ export default function FirstLightPage() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting || !formData.selectedTier || !formData.paymentProof}
+                  disabled={isSubmitting || totalAmount === 0 || !formData.paymentProof}
                   className="w-full btn btn-primary text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Submitting...' : 'Confirm Participation'}
